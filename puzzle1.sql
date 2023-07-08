@@ -1,19 +1,3 @@
-begin;
-
-drop table if exists customer;
-
-create table customer (
-       customerid int,
-       name text,
-       address text,
-       citystatezip text,
-       birthdate text,
-       phone text
-);
-
-\copy customer from 'noahs-customers.csv' with csv header
-
-commit;
 
 with translated as (
 -- Define a relation with a name_numbers column that translates each
