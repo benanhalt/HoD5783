@@ -6,7 +6,7 @@ create table customer (
        name text,
        address text,
        citystatezip text,
-       birthdate text,
+       birthdate date,
        phone text
 );
 \copy customer from 'noahs-customers.csv' with csv header
