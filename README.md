@@ -1,6 +1,8 @@
 # Hanukkah of Data 5783
 Hanukkah of Data solutions in Postgres
 
+Spoilers in the sql files, obviously.
+
 Get the data:
 ```
 wget https://hanukkah.bluebird.sh/5783/noahs-csv.zip
