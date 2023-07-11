@@ -1,11 +1,14 @@
 
--- Solution is likely the woman with the most orders before 5AM.
+-- Solution is likely the woman with the most bakery orders before
+-- 5AM.
 
 select
   *
 from customer,
 lateral (
-   -- Number of bakery orders between 3AM and 5AM
+   -- Number of bakery orders between 3AM and 5AM.  This could have
+   -- been an aggregation in the outer select but would have required
+   -- an annoying group by. Could also have been a subquery.
    select
      count(*)
    from orders

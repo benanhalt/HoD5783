@@ -1,4 +1,6 @@
-
+-- The following won't work. It tries to find a customer who bought
+-- every collectible item. I've assumed a collectible item is one that
+-- starts with "Noah's". It turns out there is no such customer.
 
 -- with collectible as (
 --    select *
@@ -19,6 +21,10 @@
 --     ))
 --   from collectible
 -- );
+
+-- Instead just find the customer who bought the most collectibles. It
+-- turns out there are some collectibles they never bought. It's an
+-- interesting bonus puzzle to find what those item are!
 
 select
   name,

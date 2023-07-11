@@ -1,3 +1,4 @@
+-- Find customers with initials 'jd' who ordered a bagel in 2017.
 
 select
    customer.customerid,
@@ -7,6 +8,8 @@ select
    orders.*
 from customer,
 lateral (
+   -- split name into words and aggregate the first letter of each to
+   -- produce the initials
    select
      string_agg(substring(name_word from 1 for 1), '') as initials
    from string_to_table(
@@ -15,6 +18,7 @@ lateral (
      ) as name_word -- split the name into words
 ) initials,
 lateral (
+   -- aggregate all items in a order into a string seperated by ;
    select
      orderid,
      ordered,
@@ -27,5 +31,5 @@ lateral (
 ) orders
 where initials = 'jd'
 and extract(year from ordered) = 2017
-and items ilike '%bagel%';
+and items ilike '%bagel%'; -- this is a bit gross but works
 
